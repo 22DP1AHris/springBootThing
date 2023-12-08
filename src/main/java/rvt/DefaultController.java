@@ -8,8 +8,19 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class DefaultController {
     
-   @GetMapping(value = "/")
+   
     String index(@RequestParam(name="name", required=false, defaultValue="null") String name, Model model) {
         return "index";
+    }
+
+    @GetMapping(value = "/about")
+    String aboutMe(Model model){
+        String name = "Laky";
+        String surame = "help";
+        int age = 5;
+        String group = "home";
+        model.addAttribute("age", age);
+
+        return "about";
     }
 }
